@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2615" height="2615" viewBox="0 0 2615 2615">
+  <defs>
+    <clipPath id="clip-Logo">
+      <rect width="2615" height="2615"/>
+    </clipPath>
+  </defs>
+  <g id="Logo" clip-path="url(#clip-Logo)">
+    <text id="jo" transform="translate(1786.805 1482.931)" fill="#66df6a" font-size="1000" font-family="ProductSans-Bold, Product Sans" font-weight="700"><tspan x="0" y="0">jo</tspan></text>
+    <path id="book-solid" d="M1560.6,1254.054V83.6A83.4,83.4,0,0,0,1477,0H334.414C149.79,0,0,149.79,0,334.414V1449.129c0,184.625,149.79,334.414,334.414,334.414H1477a83.4,83.4,0,0,0,83.6-83.6V1644.2a84.254,84.254,0,0,0-31-65.141c-14.631-53.646-14.631-206.57,0-260.216a83.017,83.017,0,0,0,31-64.793ZM445.886,466.787a20.962,20.962,0,0,1,20.9-20.9h738.5a20.962,20.962,0,0,1,20.9,20.9v69.67a20.962,20.962,0,0,1-20.9,20.9h-738.5a20.962,20.962,0,0,1-20.9-20.9Zm0,222.943a20.962,20.962,0,0,1,20.9-20.9h738.5a20.963,20.963,0,0,1,20.9,20.9V759.4a20.962,20.962,0,0,1-20.9,20.9h-738.5a20.962,20.962,0,0,1-20.9-20.9ZM1328.6,1560.6H334.414a111.352,111.352,0,0,1-111.471-111.471c0-61.31,50.162-111.472,111.471-111.472H1328.6C1321.981,1397.225,1321.981,1501.032,1328.6,1560.6Z" transform="translate(-1.805 415.729)" fill="#66df6a"/>
+    <rect id="사각형_1" data-name="사각형 1" width="1055.078" height="771.224" transform="translate(292.76 662.179)" fill="#66df6a"/>
+    <text id="n" transform="translate(1165.743 1481.931)" fill="#fff" font-size="999" font-family="ProductSans-Bold, Product Sans" font-weight="700"><tspan x="0" y="0">n</tspan></text>
+    <text id="Si" transform="translate(335.606 1477.931)" fill="#fff" font-size="995" font-family="ProductSans-Bold, Product Sans" font-weight="700"><tspan x="0" y="0">Si</tspan></text>
+  </g>
+</svg>
