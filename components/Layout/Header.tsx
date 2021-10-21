@@ -3,9 +3,13 @@ import { AppBar, Box, Drawer, IconButton, styled, Toolbar } from '@mui/material'
 import Logo from '@assets/Logo.svg'
 import Link from 'next/link'
 import { useIsMobile } from '../../src/hooks/responsive'
-import { Menu } from '@mui/icons-material'
-import { useRecoilState } from 'recoil'
-import { mobileDrawerOpenState } from '../../src/states/global'
+import { Menu, Search } from '@mui/icons-material'
+import { useRecoilState, useSetRecoilState } from 'recoil'
+import {
+  mobileDrawerOpenState,
+  searchMenuOpenState,
+} from '../../src/states/global'
+import SearchMenu from './SearchMenu'
 
 const LinkItem = styled('a')({
   color: '#3C4044',
@@ -38,6 +42,7 @@ export const headerItems = [
 const Header: React.FC = () => {
   const isMobile = useIsMobile()
   const [drawer, setDrawer] = useRecoilState(mobileDrawerOpenState)
+  const setSearch = useSetRecoilState(searchMenuOpenState)
 
   return (
     <AppBar
@@ -106,8 +111,12 @@ const Header: React.FC = () => {
               </IconButton>
             </>
           ) : (
-            <></>
-          ) // account menu
+            <Box sx={{ display: 'flex', gap: 2 }}>
+              <IconButton onClick={() => setSearch(true)}>
+                <Search />
+              </IconButton>
+            </Box>
+          ) // account menu / drawer button
         }
       </Toolbar>
     </AppBar>
