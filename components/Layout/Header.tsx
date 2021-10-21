@@ -1,7 +1,9 @@
 import React from 'react'
-import { AppBar, Box, styled, Toolbar } from '@mui/material'
+import { AppBar, Box, IconButton, styled, Toolbar } from '@mui/material'
 import Logo from '@assets/Logo.svg'
 import Link from 'next/link'
+import { useIsMobile } from '../../src/hooks/responsive'
+import { Menu } from '@mui/icons-material'
 
 const LinkItem = styled('a')({
   color: '#3C4044',
@@ -16,6 +18,8 @@ const LinkItem = styled('a')({
   },
 })
 const Header: React.FC = () => {
+  const isMobile = useIsMobile()
+
   return (
     <AppBar
       elevation={0}
@@ -55,24 +59,38 @@ const Header: React.FC = () => {
             />
           </Box>
         </Link>
-        <Box
-          sx={{
-            flexGrow: 1,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <Link href={'/about'} passHref>
-            <LinkItem>소개</LinkItem>
-          </Link>
-          <Link href={'/recent'} passHref>
-            <LinkItem>최근 작성</LinkItem>
-          </Link>
-          <Link href={'/discussion'} passHref>
-            <LinkItem>토론</LinkItem>
-          </Link>
-        </Box>
+        {!isMobile && (
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Link href={'/about'} passHref>
+              <LinkItem>소개</LinkItem>
+            </Link>
+            <Link href={'/recent'} passHref>
+              <LinkItem>최근 작성</LinkItem>
+            </Link>
+            <Link href={'/discussion'} passHref>
+              <LinkItem>토론</LinkItem>
+            </Link>
+          </Box>
+        )}
+        {
+          isMobile ? (
+            <>
+              <Box sx={{ flexGrow: 1 }} />
+              <IconButton>
+                <Menu />
+              </IconButton>
+            </>
+          ) : (
+            <></>
+          ) // account menu
+        }
       </Toolbar>
     </AppBar>
   )
