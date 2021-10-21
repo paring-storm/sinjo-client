@@ -1,9 +1,11 @@
 import React from 'react'
-import { AppBar, Box, IconButton, styled, Toolbar } from '@mui/material'
+import { AppBar, Box, Drawer, IconButton, styled, Toolbar } from '@mui/material'
 import Logo from '@assets/Logo.svg'
 import Link from 'next/link'
 import { useIsMobile } from '../../src/hooks/responsive'
 import { Menu } from '@mui/icons-material'
+import { useRecoilState } from 'recoil'
+import { mobileDrawerOpenState } from '../../src/states/global'
 
 const LinkItem = styled('a')({
   color: '#3C4044',
@@ -17,8 +19,25 @@ const LinkItem = styled('a')({
     color: '#000',
   },
 })
+
+export const headerItems = [
+  {
+    label: '소개',
+    link: '/about',
+  },
+  {
+    label: '최근 작성',
+    link: '/recent',
+  },
+  {
+    label: '토론',
+    link: '/discussion',
+  },
+]
+
 const Header: React.FC = () => {
   const isMobile = useIsMobile()
+  const [drawer, setDrawer] = useRecoilState(mobileDrawerOpenState)
 
   return (
     <AppBar
@@ -26,6 +45,7 @@ const Header: React.FC = () => {
       sx={{
         color: '#000',
         background: '#fff',
+        zIndex: (theme) => theme.zIndex.drawer + 1,
       }}
     >
       <Toolbar
@@ -33,12 +53,14 @@ const Header: React.FC = () => {
           position: 'relative',
           '&::before': {
             content: '""',
-            width: `calc(100vw - 10px)`,
+            // width: `calc(100vw - 10px)`,
+            width: '100vw',
             height: 0,
             top: '100%',
             position: 'absolute',
             borderBottom: '1px solid #E3E6EB',
-            left: 5,
+            left: 0,
+            // left: 5,
           },
         }}
       >
@@ -68,22 +90,18 @@ const Header: React.FC = () => {
               alignItems: 'center',
             }}
           >
-            <Link href={'/about'} passHref>
-              <LinkItem>소개</LinkItem>
-            </Link>
-            <Link href={'/recent'} passHref>
-              <LinkItem>최근 작성</LinkItem>
-            </Link>
-            <Link href={'/discussion'} passHref>
-              <LinkItem>토론</LinkItem>
-            </Link>
+            {headerItems.map((x, i) => (
+              <Link key={i} href={x.link} passHref>
+                <LinkItem>{x.label}</LinkItem>
+              </Link>
+            ))}
           </Box>
         )}
         {
           isMobile ? (
             <>
               <Box sx={{ flexGrow: 1 }} />
-              <IconButton>
+              <IconButton onClick={() => setDrawer(!drawer)}>
                 <Menu />
               </IconButton>
             </>

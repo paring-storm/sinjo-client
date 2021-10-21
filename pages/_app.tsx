@@ -5,25 +5,28 @@ import theme from '../src/theme'
 import React from 'react'
 import { css, Global } from '@emotion/react'
 import Head from 'next/head'
+import { RecoilRoot } from 'recoil'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <Head>
-        <title>Sinjo</title>
-      </Head>
-      <CssBaseline />
-      <Global
-        styles={css`
-          body {
-            user-select: none;
-          }
-        `}
-      />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <Head>
+          <title>Sinjo</title>
+        </Head>
+        <CssBaseline />
+        <Global
+          styles={css`
+            body {
+              user-select: none;
+            }
+          `}
+        />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </RecoilRoot>
   )
 }
 export default MyApp
