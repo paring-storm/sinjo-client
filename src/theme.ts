@@ -15,6 +15,11 @@ const theme = createTheme({
       main: red.A400,
     },
   },
+  typography: {
+    allVariants: {
+      color: '#3C4044',
+    },
+  },
 })
 
 export default theme

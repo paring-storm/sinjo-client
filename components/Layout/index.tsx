@@ -21,17 +21,31 @@ const Layout: React.FC = ({ children }) => {
   }
 
   return (
-    <GlobalHotKeys keyMap={keyMap} handlers={handlers}>
-      <Header />
-      <Sidebar />
-      <SearchMenu />
-      <Box sx={{ my: 2 }}>
-        <Container>
-          <Toolbar />
-          {children}
-        </Container>
+    <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ flexGrow: 1 }}>
+        <GlobalHotKeys keyMap={keyMap} handlers={handlers}>
+          <Header />
+          <Sidebar />
+          <SearchMenu />
+          <Box sx={{ my: 2 }}>
+            <Container>
+              <Toolbar />
+              {children}
+            </Container>
+          </Box>
+        </GlobalHotKeys>
       </Box>
-    </GlobalHotKeys>
+      <Box
+        sx={{
+          p: 4,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        Copyright 2021 Sinjo all rights reserved.
+      </Box>
+    </Box>
   )
 }
 
